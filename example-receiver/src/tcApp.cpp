@@ -5,7 +5,7 @@ void tcApp::setup() {
 }
 
 void tcApp::rescan() {
-    senders_ = NozzleReceiver::findSenders();
+    senders_ = NozzleReceiver::listSenders();
     lastScan_ = getElapsedTimef();
 
     // Auto-connect to the first sender we find if we aren't already connected.

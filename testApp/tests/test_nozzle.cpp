@@ -191,7 +191,7 @@ int main() {
             std::vector<unsigned char> px(4 * 4 * 4, 0);
             sender.send(px.data(), 4, 4, 4);
 
-            auto senders = tcx::NozzleReceiver::findSenders();
+            auto senders = tcx::NozzleReceiver::listSenders();
             TEST_GT(senders.size(), size_t(0), "discovery: found at least one sender");
             bool found = false;
             for (auto &s : senders) {

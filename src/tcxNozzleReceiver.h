@@ -30,7 +30,11 @@ public:
     NozzleReceiver(NozzleReceiver &&) noexcept;
     NozzleReceiver &operator=(NozzleReceiver &&) noexcept;
 
-    static std::vector<NozzleSenderInfo> findSenders();
+    // List the senders currently being published (TrussC listX() convention).
+    static std::vector<NozzleSenderInfo> listSenders();
+
+    [[deprecated("Use listSenders() instead.")]]
+    static std::vector<NozzleSenderInfo> findSenders() { return listSenders(); }
 
     bool connect(const std::string &senderName);
     bool connect(const NozzleSenderInfo &source);

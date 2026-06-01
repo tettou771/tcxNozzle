@@ -62,7 +62,7 @@ sender.send(data, width, height, /*channels=*/4);
 #include <tcxNozzle.h>
 
 // discover what's currently being shared
-for (auto& s : NozzleReceiver::findSenders()) {
+for (auto& s : NozzleReceiver::listSenders()) {
     logNotice() << s.name << " (" << s.application_name << ")";
 }
 
@@ -85,7 +85,7 @@ for runnable apps — launch both, and the receiver picks up the sender's frames
 | Class | Key methods |
 |-------|-------------|
 | `NozzleSender`   | `setup(name, w?, h?)`, `send(Texture&)`, `send(Fbo&)`, `send(Pixels&)`, `send(data, w, h, ch)`, `close()`, `isSetup()`, `getName()`, `getWidth()`, `getHeight()`, `getFrameCount()` |
-| `NozzleReceiver` | `findSenders()` *(static)*, `connect(name)`, `connect(NozzleSenderInfo&)`, `disconnect()`, `isConnected()`, `receive(Texture&)`, `receive(Pixels&)`, `isFrameNew()`, `getSenderName()`, `getWidth()`, `getHeight()`, `getFormat()` |
+| `NozzleReceiver` | `listSenders()` *(static)*, `connect(name)`, `connect(NozzleSenderInfo&)`, `disconnect()`, `isConnected()`, `receive(Texture&)`, `receive(Pixels&)`, `isFrameNew()`, `getSenderName()`, `getWidth()`, `getHeight()`, `getFormat()` |
 | `NozzleSenderInfo` | public fields: `name`, `application_name`, `format`, `semantic_format` |
 
 `send(Texture&)` / `send(Fbo&)` blit into nozzle's shared texture on Metal/D3D11

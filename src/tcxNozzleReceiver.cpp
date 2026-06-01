@@ -38,7 +38,7 @@ NozzleReceiver::~NozzleReceiver() = default;
 NozzleReceiver::NozzleReceiver(NozzleReceiver &&other) noexcept = default;
 NozzleReceiver &NozzleReceiver::operator=(NozzleReceiver &&other) noexcept = default;
 
-std::vector<NozzleSenderInfo> NozzleReceiver::findSenders() {
+std::vector<NozzleSenderInfo> NozzleReceiver::listSenders() {
     auto list = nozzle::enumerate_senders();
     std::vector<NozzleSenderInfo> result;
     for (auto &s : list) {
